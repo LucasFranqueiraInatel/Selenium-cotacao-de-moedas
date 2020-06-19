@@ -1,0 +1,14 @@
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+
+driver = webdriver.Chrome(executable_path='../drivers/chromedriver.exe')
+driver.maximize_window()
+driver.get("https://economia.uol.com.br/cotacoes/")
+valores = driver.find_elements_by_xpath('//span[@class="value bra"]')
+
+y = ("Dollar","Peso","Euro")
+
+x = len(valores)
+for i in range(x):
+    print(f'{y[i]} : R${valores[i].text}')
+
